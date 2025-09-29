@@ -46,15 +46,6 @@ import { Container } from 'react-grid-system';
 import styles from './page.module.css';
 
 /**
- * Converts an ISO string to a date object
- */
-const updateTimezoneOffset = (date: string) => {
-    const d = new Date(date);
-    d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
-    return d;
-};
-
-/**
  * Custom hook to fetch the runner images
  */
 const useRunners = () => {
