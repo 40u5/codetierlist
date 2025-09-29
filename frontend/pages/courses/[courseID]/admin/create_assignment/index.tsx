@@ -297,13 +297,13 @@ export default function Page(): JSX.Element {
                             type="datetime-local"
                             id="dueDate"
                             name="dueDate"
-                            value={dueDate.toISOString().slice(0, -8)}
+                            value={new Date(dueDate.getTime() - dueDate.getTimezoneOffset() * 60000).toISOString().slice(0, 16)}
                             onChange={(e) => {
                                 // check if the date is valid
                                 if (
                                     new Date(e.target.value).toString() !== 'Invalid Date'
                                 )
-                                    setDueDate(updateTimezoneOffset(e.target.value));
+                                    setDueDate(new Date(e.target.value));
                             }}
                         />
                     </ControlCard>
