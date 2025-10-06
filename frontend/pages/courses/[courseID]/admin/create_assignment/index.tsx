@@ -5,6 +5,7 @@ import {
     Monaco,
     checkIfCourseAdmin,
     MarkdownRender,
+    formatDateForInput,
 } from '@/components';
 import { SnackbarContext, UserContext } from '@/hooks';
 import {
@@ -288,7 +289,7 @@ export default function Page(): JSX.Element {
                             type="datetime-local"
                             id="dueDate"
                             name="dueDate"
-                            value={new Date(dueDate.getTime() - dueDate.getTimezoneOffset() * 60000).toISOString().slice(0, 16)}
+                            value={formatDateForInput(dueDate)}
                             onChange={(e) => {
                                 // check if the date is valid
                                 if (
